@@ -25,15 +25,24 @@ main()
  */
 
 function solution(arr) {
-  let height = arr.length, width = arr[0].length, res = 0
-  let i=0, j = 0
-  while(j < height) {
+  let steps = [[1,1],[1,3],[1,5],[1,7],[2,1]]
+  let res = 1
+  for(let step of steps) {
+    res *= getTreesNum(arr, step)
+  }
+  return res
+}
+
+function getTreesNum(arr, step) {
+  let h = arr.length, w = arr[0].length, res = 0
+  let j = 0, i = 0
+  while(j < h) {
     if(arr[j][i] == '#') {
       res++
     }
-    j++
-    i+=3
-    i%=width
-  } 
+    j+=step[0]
+    i+=step[1]
+    i%=w
+  }
   return res
 }
