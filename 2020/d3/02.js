@@ -1,4 +1,3 @@
-
 const fs = require('fs')
 
 function getInput(filename) {
@@ -13,8 +12,6 @@ function main() {
 }
 
 main()
-
-
 
 /**
  * ======================================
