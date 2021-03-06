@@ -27,21 +27,18 @@ main()
  */
 
 function solution(arr) {
-  for(let i=25; i<arr.length; i++) {
-    if(!isValid(arr[i], arr.slice(i-25, i))) {
-      return arr[i]
+  arr.sort((a,b) => a-b)
+  let dp = Array(arr[arr.length-1] + 1).fill(0)
+  dp[0] = 0
+  dp[1] = arr.indexOf(1) > -1 ? 1 : 0
+  dp[2] = arr.indexOf(2) > -1 ? dp[0] + dp[1] + 1 : 0
+  for(let i=3; i<dp.length; i++) {
+    if(arr.indexOf(i) > -1) {
+      dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
     }
   }
+  return dp[arr[arr.length-1]]
 }
 
-function isValid(target, nums) {
-  let m = {}
-  for(let i=0; i<nums.length; i++){
-    if(m[target - nums[i]] != undefined) {
-      return true
-    }
-    m[nums[i]] = i
-  }
-  return false
-} 
 
+// dp[i] = dp[i-3] + dp[i-2] + dp[i-1]

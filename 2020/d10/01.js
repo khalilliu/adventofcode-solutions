@@ -27,21 +27,24 @@ main()
  */
 
 function solution(arr) {
-  for(let i=25; i<arr.length; i++) {
-    if(!isValid(arr[i], arr.slice(i-25, i))) {
-      return arr[i]
-    }
+  arr.sort((a,b) => a-b)
+  console.log(arr)
+  let n = 0, res = [0, 0, 0]
+  for(let i=0; i<arr.length; i++) {
+    if(arr[i] - n <= 3) {
+      if(n+1 == arr[i]) {
+        res[0]++
+      } else if(n+2 == arr[i]) {
+        res[1]++
+      } else if(n+3 == arr[i]) {
+        console.log(arr[i])
+        res[2]++
+      }
+      n = arr[i]
+    } 
   }
+  console.log(res)
+  return (res[2]+1) * res[0]
 }
 
-function isValid(target, nums) {
-  let m = {}
-  for(let i=0; i<nums.length; i++){
-    if(m[target - nums[i]] != undefined) {
-      return true
-    }
-    m[nums[i]] = i
-  }
-  return false
-} 
 

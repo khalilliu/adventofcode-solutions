@@ -10,6 +10,7 @@ function getInput(filename) {
 function main() {
   let input = getInput('./input.txt')
   let res = solution(input)
+  console.log('============= THE ANSWER IS =============')
   console.log(res)
 }
 
@@ -54,7 +55,6 @@ function solution(arr) {
       i++
     }
   }
-  // console.log('--->', i, j)  i = 407 j = 424
   let nums = arr.slice(i,j)
   return Math.min(...nums) + Math.max(...nums)
 }
