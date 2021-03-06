@@ -31,7 +31,6 @@ function solution(arr) {
     .map(val => val.split('\n').map(s => s.trim()).join(' ').split(' '))
     .map(val => val.map(s => s.split(':')))
     .map(val => val.reduce((prev,cur) => {prev[cur[0]] = cur[1]; return prev}, {}))
-    console.log(arr.length)
   for(let item of arr) {
     if(isValid(item)) {
       // console.log(item)
@@ -64,13 +63,14 @@ function isValid(passport) {
         if(val < 2020 || val > 2030) return false
         break
       case 'hgt':
-        if(!/(\d{2,3})(\w{2})/.test(val)) return false
         let [_, num, ext] = val.match(/(\d+)(\w+)/)
         num = parseInt(num,10)
         if(ext == 'cm') {
           if(num < 150 || num > 193) return false
         } else if(ext == 'in') {
           if(num < 59 || num > 76) return false
+        } else {
+          return false
         }
         break
       case 'hcl':
