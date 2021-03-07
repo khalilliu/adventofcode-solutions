@@ -1,6 +1,6 @@
 
 const fs = require('fs')
-const { join } = require('path')
+
 
 function getInput(filename) {
   var arr = fs.readFileSync(filename).toString().split('\n')
