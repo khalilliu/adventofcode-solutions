@@ -52,6 +52,7 @@ function helper(q) {
       num = helper(q)
     } else {
       switch(prevOp) {
+        // 17*2*2+12
         case '*' :
           sum *= prev
           prev =  num
