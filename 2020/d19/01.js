@@ -1,5 +1,4 @@
 const fs = require('fs')
-const { string } = require('prop-types')
 
 
 function getInput(filename) {
@@ -93,7 +92,6 @@ function dfs(index, rules,  stringRules) {
   return target.match
 }
 
-// function isStringRule()
 
 
 
