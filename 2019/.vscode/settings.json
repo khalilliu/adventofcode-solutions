@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.js": "javascript",
+    "*.cjson": "jsonc",
+    "*.wxss": "css",
+    "*.wxs": "javascript",
+    "*.vue": "vue",
+    "vector": "cpp",
+    "ostream": "cpp"
+  }
+}
